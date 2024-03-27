@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Códigos QR</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        #formulario {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #codigo-qr {
+            margin-top: 20px;
+            max-width: 100%;
+        }
+        #descargar-btn {
+            margin-top: 10px;
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="formulario">
+        <h2>Generador de Códigos QR</h2>
+        <p>Este generador de códigos QR fue creado por Jorge Moncayo utilizando HTML, CSS, Python y Flask.</p>
+        <p>El generador permite ingresar texto o una URL y genera un código QR correspondiente.</p>
+        <form action="/" method="post">
+            <input type="text" name="texto" placeholder="Ingrese el texto o la URL">
+            <button type="submit">Generar Código QR</button>
+        </form>
+        {% if qr_img %}
+            <img src="data:image/png;base64,{{ qr_img }}" id="codigo-qr" alt="Código QR">
+            <a href="data:image/png;base64,{{ qr_img }}" download="codigo_qr.png" id="descargar-btn">Descargar Código QR</a>
+        {% endif %}
+    </div>
+</body>
+</html>
+
+
+
+
+
